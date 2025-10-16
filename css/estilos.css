@@ -10,6 +10,7 @@ body {
   min-height: 100vh;
 }
 
+
 header {
   display: flex;
   align-items: center;
@@ -17,6 +18,7 @@ header {
   padding: 0 20px;
   background: linear-gradient(to bottom, #0ED5EF, #ffffff);
   height: 120px;
+  position: relative;
 }
 
 /* Logo */
@@ -31,10 +33,21 @@ header {
   cursor: pointer;
 }
 
+/* Menu hamburguesa - oculto por defecto */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #0e61ef;
+  cursor: pointer;
+  z-index: 1001;
+}
+
 /* Nav centrado */
 nav {
-  flex: 1;/* ocupa el espacio disponible */
-  text-align: center;/* centra el contenido dentro del nav */
+  flex: 1;
+  text-align: center;
 }
 
 nav ul {
@@ -73,7 +86,7 @@ nav a:hover {
 
 .carrito:hover {
   transform: scale(1.2);
-  color: #ffffff;/* ejemplo: color amarillo al pasar el mouse */
+  color: #ffffff;
 }
 
 #inicio {
