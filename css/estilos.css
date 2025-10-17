@@ -1,15 +1,19 @@
+/* ============================================
+   ESTILOS BASE (mantén todo lo que ya tenías)
+   ============================================ */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
 }
+
 body {
   font-family: "Exo 2", sans-serif;
   background: #ffffff;
   min-height: 100vh;
 }
-
 
 header {
   display: flex;
@@ -42,6 +46,7 @@ header {
   color: #0e61ef;
   cursor: pointer;
   z-index: 1001;
+  padding: 10px;
 }
 
 /* Nav centrado */
@@ -96,7 +101,7 @@ nav a:hover {
 }
 
 .hero {
-  height: 90vh;/* altura del hero */
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -143,7 +148,6 @@ nav a:hover {
   from {
     transform: rotateY(0deg);
   }
-
   to {
     transform: rotateY(360deg);
   }
@@ -170,6 +174,7 @@ nav a:hover {
   background-position: center;
   border: 2px solid rgba(14, 213, 239, 0.3);
 }
+
 .tarjeta img {
   width: 100%;
   height: 100%;
@@ -255,6 +260,285 @@ nav a:hover {
   font-family: "Exo 2", sans-serif;
   text-transform: uppercase;
   letter-spacing: 3px;
+  text-align: center;
+  width: 90%;
+}
+
+
+/* ============================================
+   MEDIA QUERIES - RESPONSIVE
+   ============================================ */
+
+/* Tablets en modo horizontal y laptops pequeñas (768px - 992px) */
+@media screen and (max-width: 992px) {
+  header {
+    height: 100px;
+    padding: 0 15px;
+  }
+
+  .logo img {
+    width: 160px;
+  }
+
+  nav ul li {
+    margin: 0 10px;
+  }
+
+  nav ul li a {
+    font-size: 18px;
+  }
+
+  /* Hero ajustes */
+  .hero {
+    height: 80vh;
+    padding: 30px 15px;
+  }
+
+  .carousel-container {
+    height: 500px;
+    margin: 200px;
+  }
+
+  .titulo-seccion {
+    font-size: 38px;
+    bottom: 30px;
+  }
+
+  /* Carrusel más pequeño */
+  .tarjeta {
+    width: 320px;
+    height: 400px;
+    margin-left: -120px;
+    margin-top: -160px;
+  }
+
+  .tarjeta:nth-child(7),
+  .tarjeta:nth-child(8),
+  .tarjeta:nth-child(9),
+  .tarjeta:nth-child(10),
+  .tarjeta:nth-child(11),
+  .tarjeta:nth-child(12) {
+    transform: rotateY(var(--rotation, 0deg)) translateZ(400px) translateY(-100px);
+  }
+
+  .tarjeta:nth-child(7) { --rotation: 0deg; }
+  .tarjeta:nth-child(8) { --rotation: 60deg; }
+  .tarjeta:nth-child(9) { --rotation: 120deg; }
+  .tarjeta:nth-child(10) { --rotation: 180deg; }
+  .tarjeta:nth-child(11) { --rotation: 240deg; }
+  .tarjeta:nth-child(12) { --rotation: 300deg; }
+
+  .shadow:nth-child(1),
+  .shadow:nth-child(2),
+  .shadow:nth-child(3),
+  .shadow:nth-child(4),
+  .shadow:nth-child(5),
+  .shadow:nth-child(6) {
+    transform: rotateY(var(--shadow-rotation, 0deg)) translateZ(400px) translateY(240px) rotateX(90deg) scale(1.2);
+  }
+
+  .shadow:nth-child(1) { --shadow-rotation: 0deg; }
+  .shadow:nth-child(2) { --shadow-rotation: 60deg; }
+  .shadow:nth-child(3) { --shadow-rotation: 120deg; }
+  .shadow:nth-child(4) { --shadow-rotation: 180deg; }
+  .shadow:nth-child(5) { --shadow-rotation: 240deg; }
+  .shadow:nth-child(6) { --shadow-rotation: 300deg; }
+
+  .floor {
+    width: 1000px;
+    height: 1000px;
+    margin-bottom: 500px;
+  }
+}
+
+/* Tablets en modo vertical (600px - 768px) */
+@media screen and (max-width: 768px) {
+  header {
+    height: 80px;
+    padding: 0 15px;
+  }
+
+  .logo img {
+    width: 140px;
+  }
+
+  /* Mostrar botón hamburguesa */
+  .menu-toggle {
+    display: block;
+    order: 2;
+  }
+
+  /* Ocultar navegación por defecto */
+  nav {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: linear-gradient(to bottom, #0ED5EF, #ffffff);
+    transition: left 0.3s ease;
+    z-index: 999;
+    padding: 40px 0;
+    text-align: center;
+  }
+
+  /* Navegación visible cuando está activa */
+  nav.active {
+    left: 0;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 30px 0;
+  }
+
+  nav ul li a {
+    font-size: 24px;
+  }
+
+  /* Reorganizar orden del header */
+  .logo {
+    order: 1;
+  }
+
+  .acciones {
+    order: 3;
+    padding: 10px;
+  }
+
+  /* Hero ajustes */
+  .hero {
+    height: 75vh;
+    padding: 20px 10px;
+  }
+
+  .carousel-container {
+    height: 400px;
+  }
+
+  .titulo-seccion {
+    font-size: 28px;
+    bottom: 20px;
+    letter-spacing: 2px;
+  }
+
+  /* Carrusel más pequeño */
+  .tarjeta {
+    width: 260px;
+    height: 320px;
+    margin-left: -100px;
+    margin-top: -130px;
+  }
+
+  .tarjeta:nth-child(7),
+  .tarjeta:nth-child(8),
+  .tarjeta:nth-child(9),
+  .tarjeta:nth-child(10),
+  .tarjeta:nth-child(11),
+  .tarjeta:nth-child(12) {
+    transform: rotateY(var(--rotation, 0deg)) translateZ(300px) translateY(-80px);
+  }
+
+  .shadow:nth-child(1),
+  .shadow:nth-child(2),
+  .shadow:nth-child(3),
+  .shadow:nth-child(4),
+  .shadow:nth-child(5),
+  .shadow:nth-child(6) {
+    transform: rotateY(var(--shadow-rotation, 0deg)) translateZ(300px) translateY(200px) rotateX(90deg) scale(1);
+  }
+
+  .floor {
+    width: 800px;
+    height: 800px;
+  }
+}
+
+/* Celulares y dispositivos pequeños (hasta 600px) */
+@media screen and (max-width: 600px) {
+  header {
+    height: 70px;
+    padding: 0 10px;
+  }
+
+  .logo img {
+    width: 120px;
+  }
+
+  .menu-toggle {
+    font-size: 24px;
+  }
+
+  nav {
+    top: 70px;
+    height: calc(100vh - 70px);
+  }
+
+  nav ul li {
+    margin: 25px 0;
+  }
+
+  nav ul li a {
+    font-size: 20px;
+  }
+
+  .carrito {
+    font-size: 20px;
+  }
+
+  /* Hero ajustes */
+  .hero {
+    height: 70vh;
+    padding: 15px 5px;
+  }
+
+  .carousel-container {
+    height: 350px;
+  }
+
+  .titulo-seccion {
+    font-size: 20px;
+    bottom: 15px;
+    letter-spacing: 1px;
+  }
+
+  /* Carrusel más pequeño */
+  .tarjeta {
+    width: 200px;
+    height: 260px;
+    margin-left: -80px;
+    margin-top: -100px;
+  }
+
+  .tarjeta:nth-child(7),
+  .tarjeta:nth-child(8),
+  .tarjeta:nth-child(9),
+  .tarjeta:nth-child(10),
+  .tarjeta:nth-child(11),
+  .tarjeta:nth-child(12) {
+    transform: rotateY(var(--rotation, 0deg)) translateZ(250px) translateY(-60px);
+  }
+
+  .shadow {
+    width: 200px;
+    height: 100px;
+    margin-left: -100px;
+    margin-top: -50px;
+  }
+
+  .shadow:nth-child(1),
+  .shadow:nth-child(2),
+  .shadow:nth-child(3),
+  .shadow:nth-child(4),
+  .shadow:nth-child(5),
+  .shadow:nth-child(6) {
+    transform: rotateY(var(--shadow-rotation, 0deg)) translateZ(250px) translateY(180px) rotateX(90deg) scale(0.8);
+  }
+
+  .floor {
+    width: 600px;
+    height: 600px;
+  }
 }
 
 .productos {
