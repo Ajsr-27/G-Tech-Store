@@ -37,3 +37,48 @@ document.addEventListener('click', (e) => {
     icon.classList.add('fa-bars');
   }
 });
+
+// Manejo del formulario de reseñas
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.formulario form');
+    
+    if (form) {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault(); // Evita la redirección
+            
+            const formData = new FormData(form);
+            const button = form.querySelector('button[type="submit"]');
+            const buttonText = button.textContent;
+            
+            // Deshabilitar el botón mientras se envía
+            button.disabled = true;
+            button.textContent = 'Enviando...';
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Mensaje de éxito
+                    alert('¡Gracias por tu reseña! Tu mensaje ha sido enviado correctamente.');
+                    
+                    // Limpiar el formulario
+                    form.reset();
+                } else {
+                    alert('Hubo un problema al enviar tu reseña. Por favor, intenta nuevamente.');
+                }
+            } catch (error) {
+                alert('Error al enviar el formulario. Por favor, verifica tu conexión.');
+            } finally {
+                // Rehabilitar el botón
+                button.disabled = false;
+                button.textContent = buttonText;
+            }
+        });
+    }
+});
