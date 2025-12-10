@@ -37,11 +37,27 @@
         </nav>
 
         <div class="acciones">
-            <a href="#" class="carrito">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </a>
+            <a href="#" id="btn-carrito" class="carrito">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="contador-carrito" class="contador">0</span>
+</a>
         </div>
     </header>
+
+    <div id="panel-carrito" class="panel-carrito">
+        <button id="cerrar-panel" class="cerrar-panel">X</button>
+    
+        <h2>Tu Carrito</h2>
+    
+        <ul id="lista-carrito"></ul>
+    
+        <div class="total">
+            Total: <span id="total-carrito">0</span>
+        </div>
+    
+        <button id="vaciar-carrito" class="btn-vaciar">Vaciar Carrito</button>
+    </div>
+
     
     <div id="inicio"></div> <!-- Ancla invisible --> 
 
@@ -97,7 +113,7 @@
                         <h3>Playstation 5</h3>
                         <p>Consola Ps5 Play Station 5 Sony Slim 1 Tb - Incluye (perifericos y stand). </p>
                         <p class="precio"><strong>$ 1.399.999</strong></p>
-                        <button class="agregar-carrito"><i class="fa-solid fa-cart-plus"></i> Agregar alcarrito</button>
+                        <button class="agregar-carrito" data-id="1"><i class="fa-solid fa-cart-plus"></i> Agregar alcarrito</button>
                     </article>
     
                     <article class="product-card consola-2">
@@ -105,7 +121,7 @@
                         <h3>Xbox Series S</h3>
                         <p>Consola Xbox Series S Xbox S Microsoft Serie S 512 Gb.</p>
                         <p class="precio"><strong>$ 989.999</strong></p>
-                        <button class="agregar-carrito"><i class="fa-solid fa-cart-plus"></i> Agregar al
+                        <button class="agregar-carrito" data-id="2"><i class="fa-solid fa-cart-plus"></i> Agregar al
                             carrito</button>
                     </article>
     
@@ -114,7 +130,7 @@
                         <h3>Nintendo Switch </h3>
                         <p>Consola Switch Portatil Nintendo Oled 64 Gb.</p>
                         <p class="precio"><strong>$ 899.999</strong></p>
-                        <button class="agregar-carrito"><i class="fa-solid fa-cart-plus"></i> Agregar al
+                        <button class="agregar-carrito" data-id="3"><i class="fa-solid fa-cart-plus"></i> Agregar al
                             carrito</button>
                     </article>
     
@@ -123,7 +139,7 @@
                         <h3>Xbox Series X</h3>
                         <p>Microsoft Xbox Series X 1TB Carbon Black.</p>
                         <p class="precio"><strong>$1.497.300</strong></p>
-                        <button class="agregar-carrito"><i class="fa-solid fa-cart-plus"></i> Agregar al
+                        <button class="agregar-carrito" data-id="4"><i class="fa-solid fa-cart-plus"></i> Agregar al
                             carrito</button>
                     </article>
     
@@ -132,7 +148,7 @@
                         <h3>Asus Rog Ally</h3>
                         <p>Asus Rog Ally Amd Z1 512gb Ssd, 16gb Ram.</p>
                         <p class="precio"><strong>$1.299.000</strong></p>
-                        <button class="agregar-carrito"><i class="fa-solid fa-cart-plus"></i> Agregar al
+                        <button class="agregar-carrito" data-id="5"><i class="fa-solid fa-cart-plus"></i> Agregar al
                             carrito</button>
                     </article>
                 </div>
@@ -146,7 +162,7 @@
                         <h3> Gran Turismo 7</h3>
                         <p>Juego Para Ps5 Sony Gran Turismo 7 Lat.</p>
                         <p class="precio"><strong>$113.999</strong></p>
-                        <button class="agregar-carrito"><i class="fa-solid fa-cart-plus"></i> Agregar al
+                        <button class="agregar-carrito" data-id="6"><i class="fa-solid fa-cart-plus"></i> Agregar al
                             carrito</button>
                     </article>
     
@@ -155,7 +171,7 @@
                         <h3>Hogwarts Legacy</h3>
                         <p>Juego Para Xbox One Hogwarts Legacy Lat.</p>
                         <p class="precio"><strong>$ 129.999</strong></p>
-                        <button class="agregar-carrito"><i class="fa-solid fa-cart-plus"></i> Agregar al
+                        <button class="agregar-carrito" data-id="7"><i class="fa-solid fa-cart-plus"></i> Agregar al
                             carrito</button>
                     </article>
     
@@ -164,7 +180,7 @@
                         <h3>Mario Kart World</h3>
                         <p>Exclusivamente en la consola Nintendo Switch 2.</p>
                         <p class="precio"><strong>$ 199.999</strong></p>
-                        <button class="agregar-carrito"><i class="fa-solid fa-cart-plus"></i> Agregar al
+                        <button class="agregar-carrito" data-id="8"><i class="fa-solid fa-cart-plus"></i> Agregar al
                             carrito</button>
                     </article>
     
@@ -173,7 +189,7 @@
                         <h3>Marvel's Spider-Man 2</h3>
                         <p>Aventura de la aclamada franquicia Marvel's Spider-Man para PS5.</p>
                         <p class="precio"><strong>$130.199</strong></p>
-                        <button class="agregar-carrito"><i class="fa-solid fa-cart-plus"></i> Agregar al
+                        <button class="agregar-carrito" data-id="9"><i class="fa-solid fa-cart-plus"></i> Agregar al
                             carrito</button>
                     </article>
     
@@ -182,18 +198,9 @@
                         <h3>Battlefield 1</h3>
                         <p>Xbox X/S Series Battlefield 1. Explora una historia inolvidable</p>
                         <p class="precio"><strong>$84.699</strong></p>
-                        <button class="agregar-carrito"><i class="fa-solid fa-cart-plus"></i> Agregar al
+                        <button class="agregar-carrito" data-id="10"><i class="fa-solid fa-cart-plus"></i> Agregar al
                             carrito</button>
                     </article>
-    
-                    <!-- <article class="product-card juego-6">
-                        <img src="/imagenes/j-6.jpg" alt="juego 6">
-                        <h3>Kirby and the Forgotten Land</h3>
-                        <p>Nintendo Switch, Kirby and the Forgotten Land.</p>
-                        <p class="precio"><strong>$61.418</strong></p>
-                        <button class="agregar-carrito"><i class="fa-solid fa-cart-plus"></i> Agregar al
-                            carrito</button>
-                    </article> -->
                 </div>
             </div>
     
@@ -205,7 +212,7 @@
                         <h3>Audífonos Gamer Bluetooth</h3>
                         <p>Audífonos Gamer Bluetooth Inalámbricos Micrófono Luz Led Negro Con Azul Lab.g</p>
                         <p class="precio"><strong>$195.000</strong></p>
-                        <button class="agregar-carrito"><i class="fa-solid fa-cart-plus"></i> Agregar al
+                        <button class="agregar-carrito" data-id="11"><i class="fa-solid fa-cart-plus"></i> Agregar al
                             carrito</button>
                     </article>
     
@@ -215,7 +222,7 @@
                         <p>Joystick Inalámbrico Microsoft Xbox Carbon Black para Series X, S, One y PC con Windows Llega
                             hoy</p>
                         <p class="precio"><strong>$119.503</strong></p>
-                        <button class="agregar-carrito"><i class="fa-solid fa-cart-plus"></i> Agregar al
+                        <button class="agregar-carrito" data-id="12"><i class="fa-solid fa-cart-plus"></i> Agregar al
                             carrito</button>
                     </article>
     
@@ -224,7 +231,7 @@
                         <h3>Jbl Tune 115 Tws Pure Bass</h3>
                         <p>Audifonos Bluetooth Jbl Tune 115 Tws Pure Bass.</p>
                         <p class="precio"><strong>119.999</strong></p>
-                        <button class="agregar-carrito"><i class="fa-solid fa-cart-plus"></i> Agregar al
+                        <button class="agregar-carrito" data-id="13"><i class="fa-solid fa-cart-plus"></i> Agregar al
                             carrito</button>
                     </article>
     
@@ -233,7 +240,7 @@
                         <h3>Ghost Bear B100</h3>
                         <p>Auriculares Trimodo Para Juegos Ghost Bear B100 Con Micrófono</p>
                         <p class="precio"><strong>$116.860</strong></p>
-                        <button class="agregar-carrito"><i class="fa-solid fa-cart-plus"></i> Agregar al
+                        <button class="agregar-carrito" data-id="14"><i class="fa-solid fa-cart-plus"></i> Agregar al
                             carrito</button>
                     </article>
     
@@ -242,18 +249,9 @@
                         <h3>JBL Tune 520BT </h3>
                         <p>Audifono JBL Tune 520BT, Con Cancelacion De Ruido Color Negro</p>
                         <p class="precio"><strong>$66.974</strong></p>
-                        <button class="agregar-carrito"><i class="fa-solid fa-cart-plus"></i> Agregar al
+                        <button class="agregar-carrito" data-id="15"><i class="fa-solid fa-cart-plus"></i> Agregar al
                             carrito</button>
                     </article>
-    
-                    <!-- <article class="product-card accesorio-6">
-                        <img src="/imagenes/a-6.png" alt="accesorio 1">
-                        <h3>Bengoo Stereo Gaming Headset</h3>
-                        <p>Bengoo Stereo Gaming Headset for PS4, PC, Xbox One Controller.</p>
-                        <p class="precio"><strong>$190.000</strong></p>
-                        <button class="agregar-carrito"><i class="fa-solid fa-cart-plus"></i> Agregar al
-                            carrito</button>
-                    </article> -->
                 </div>
             </div>
     
@@ -361,6 +359,7 @@
 
         </div>
     </footer>
+
     <script src="/script.js"></script>
 </body>
 

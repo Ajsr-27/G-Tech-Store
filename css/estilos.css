@@ -81,6 +81,7 @@ nav a:hover {
 
 .acciones {
   padding: 10px 15px;
+  position: relative;
 }
 
 .carrito {
@@ -92,6 +93,85 @@ nav a:hover {
 .carrito:hover {
   transform: scale(1.2);
   color: #ffffff;
+}
+
+.contador {
+  background: red;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-size: 12px;
+  position: absolute;
+}
+
+#lista-carrito li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.item-img img {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-controles {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-control {
+    background: #000;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-delete {
+    background: red;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.panel-carrito {
+  position: fixed;
+  right: -400px;
+  top: 0;
+  width: 350px;
+  height: 100vh;
+  background: #dff6fa;
+  padding: 20px;
+  transition: all .3s ease;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+
+.panel-carrito.abierto {
+  right: 0;
+}
+
+.cerrar-panel {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  float: right;
+  cursor: pointer;
 }
 
 #inicio {
@@ -654,19 +734,13 @@ section h2 {
 }
 
 .contenedor-reseñas {
-  display: flex;
-  gap: 2em;
-  align-items: flex-start;
   padding: 2em;
 }
 
 .container {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5em;
-  height: 500px;
-  overflow-y: auto;
 }
 
 .tarjeta-r {
@@ -674,7 +748,6 @@ section h2 {
   background: #6b96c430;
   border-radius: .5em;
   text-align: center;
-  min-width: 250px;
 }
 
 .tarjeta-r img {
